@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    -webkit-text-size-adjust: 100% !important;
+    background-color: #0f172a !important;
+  }
+
+  body,
+  #root {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Keep code blocks readable without horizontal breaking */
+  .prose pre,
+  div[class*="language-"] pre,
+  pre {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    max-width: 100% !important;
+  }
+
+  aside {
+    min-width: 260px !important;
+  }
+
+  /* IMPORTANT: do not style all img globally */
+  .prose img {
+    max-width: 180px !important;
+    height: auto !important;
+    margin: 1rem 0 !important;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+
+  body {
+    top: 0 !important;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+nav button span {
+  word-break: break-word;
+  white-space: normal;
+}
+
+@layer utilities {
+  @media (max-width: 768px) {
+    aside {
+      min-width: 200px !important;
+    }
+
+    .prose img {
+      max-width: 100% !important;
+    }
+  }
+}
+
+/* Markdown typography fixes */
+.prose {
+  line-height: 1.7;
+}
+
+.prose p {
+  margin: 0.8rem 0;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.8rem 0;
+}
+
+.prose ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  margin: 0.8rem 0;
+}
+
+.prose li {
+  margin: 0.25rem 0;
+}
+
+.prose table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  table-layout: auto;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid #334155;
+  padding: 0.55rem 0.75rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+.prose th {
+  background: #0f1a35;
+  color: #e2e8f0;
+  font-weight: 700;
+}
+
+.prose code {
+  font-size: 0.9em;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ff990066;
+  border-radius: 10px;
+}
