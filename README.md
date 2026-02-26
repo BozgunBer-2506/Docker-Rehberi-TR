@@ -2,6 +2,8 @@
 
 Bu proje, Docker kavramlarını temelden ileri seviyeye kadar anlatan kapsamlı bir Türkçe rehberdir. Modern bir web arayüzü sunmak için React ve Vite kullanılarak geliştirilmiştir.
 
+**🚀 Live:** [https://docker-rehberi-tr.vercel.app/](https://docker-rehberi-tr.vercel.app/)
+
 ## Proje İçeriği ve Yapısı
 
 - **src/docs:** Tüm dökümanlar ve metin içerikleri burada yer alır.
@@ -35,6 +37,8 @@ npm run dev
 # 🐳 Docker Guide - EN
 
 This project is a comprehensive guide for Docker, covering everything from basics to advanced usage. It is built with a modern web interface using React and Vite.
+
+**🚀 Live:** [https://docker-rehberi-tr.vercel.app/](https://docker-rehberi-tr.vercel.app/)
 
 ## Project Structure
 
