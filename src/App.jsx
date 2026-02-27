@@ -74,7 +74,7 @@ const hit = allSections.find((s) => s.id === saved);
 if (hit) return hit;
 }
 
-return allSections[0] || null;
+return null;
 });
 
 useEffect(() => {
