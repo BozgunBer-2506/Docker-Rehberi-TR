@@ -256,6 +256,15 @@ className="text-[#FF9900]"
 >
 The_Bozgun
 </a>
+<br />
+<a
+href="https://thebozgun.com"
+target="_blank"
+rel="noopener noreferrer"
+className="text-slate-400 hover:text-[#FF9900] transition-colors mt-1 inline-block"
+>
+thebozgun.com
+</a>
 </div>
 </div>
 </aside>
