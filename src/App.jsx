@@ -256,6 +256,7 @@ className="text-[#FF9900]"
 >
 The_Bozgun
 </a>
+<div id="google_translate_element" className="mt-3" />
 </div>
 </div>
 </aside>
@@ -297,7 +298,7 @@ p: ({ children }) => (
 code({ inline, className, children, ...props }) {
 const match = /language-(\w+)/.exec(className || "");
 return !inline && match ? (
-<div className="rounded-lg overflow-hidden border border-slate-800 my-6">
+<div translate="no" className="notranslate rounded-lg overflow-hidden border border-slate-800 my-6">
 <SyntaxHighlighter
 style={atomDark}
 language={match[1]}
@@ -309,7 +310,7 @@ customStyle={{ margin: 0, padding: "20px", background: "#0d1117" }}
 </SyntaxHighlighter>
 </div>
 ) : (
-<code className="bg-slate-800 text-[#FF9900] px-1.5 py-0.5 rounded text-sm font-mono">
+<code translate="no" className="notranslate bg-slate-800 text-[#FF9900] px-1.5 py-0.5 rounded text-sm font-mono">
 {children}
 </code>
 );
