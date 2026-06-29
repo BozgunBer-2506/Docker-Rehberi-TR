@@ -148,6 +148,7 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 COPY . .
 
+# Alpine (BusyBox) sözdizimi; Debian/Ubuntu tabanlı image'larda groupadd/useradd kullan
 RUN addgroup -S app && adduser -S app -G app
 USER app
 

@@ -65,7 +65,11 @@ Mümkünse container root filesystem’i read-only çalıştır.
 docker run --read-only myapp:latest
 ```
 
-Gereken yazılabilir alanlar için volume/tmpfs tanımla.
+Diske yazan servisler (`/tmp`, `/run`, `/var/run`) için `--tmpfs` ile yazılabilir alan tanımla, aksi halde uygulama hata verir:
+
+```bash
+docker run --read-only --tmpfs /tmp --tmpfs /run myapp:latest
+```
 
 ---
 
@@ -140,13 +144,15 @@ Compose örneği (deploy context’inde):
 
 ```yaml
 services:
-api:
-deploy:
-resources:
-limits:
-cpus: "1.0"
-memory: 512M
+  api:
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
 ```
+
+> `deploy:` altında yalnızca `resources.limits` standalone `docker compose up`'ta çalışır. `replicas`, `placement`, `update_config` gibi alt-anahtarlar Docker Swarm gerektirir.
 
 ---
 

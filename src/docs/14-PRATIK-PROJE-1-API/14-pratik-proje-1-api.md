@@ -136,34 +136,34 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ```yaml
 services:
-api:
-build: .
-container_name: fastapi-api
-ports:
-- "8000:8000"
-environment:
-DATABASE_URL: postgresql://postgres:secret@db:5432/appdb
-depends_on:
-- db
+  api:
+    build: .
+    container_name: fastapi-api
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://postgres:secret@db:5432/appdb
+    depends_on:
+      - db
 
-db:
-image: postgres:16
-container_name: fastapi-db
-environment:
-POSTGRES_PASSWORD: secret
-POSTGRES_DB: appdb
-volumes:
-- pgdata:/var/lib/postgresql/data
-ports:
-- "5432:5432"
-healthcheck:
-test: ["CMD-SHELL", "pg_isready -U postgres -d appdb"]
-interval: 5s
-timeout: 3s
-retries: 10
+  db:
+    image: postgres:16
+    container_name: fastapi-db
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: appdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d appdb"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
 
 volumes:
-pgdata:
+  pgdata:
 ```
 
 ---

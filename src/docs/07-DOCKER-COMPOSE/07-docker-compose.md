@@ -33,18 +33,18 @@ gibi ayarlarını tek bir `compose.yml` dosyasında tanımlamanı sağlar.
 
 ```yaml
 services:
-api:
-build: .
-ports:
-- "8000:8000"
+  api:
+    build: .
+    ports:
+      - "8000:8000"
 
-db:
-image: postgres:16
-environment:
-POSTGRES_PASSWORD: secret
-POSTGRES_DB: appdb
-ports:
-- "5432:5432"
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: appdb
+    ports:
+      - "5432:5432"
 ```
 
 ---
@@ -102,29 +102,29 @@ docker compose down -v
 
 ```yaml
 services:
-api:
-build: .
-container_name: api
-ports:
-- "8000:8000"
-environment:
-DATABASE_URL: postgresql://postgres:secret@db:5432/appdb
-depends_on:
-- db
+  api:
+    build: .
+    container_name: api
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://postgres:secret@db:5432/appdb
+    depends_on:
+      - db
 
-db:
-image: postgres:16
-container_name: db
-environment:
-POSTGRES_PASSWORD: secret
-POSTGRES_DB: appdb
-volumes:
-- pgdata:/var/lib/postgresql/data
-ports:
-- "5432:5432"
+  db:
+    image: postgres:16
+    container_name: db
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: appdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
 volumes:
-pgdata:
+  pgdata:
 ```
 
 Başlat:
@@ -154,15 +154,15 @@ kullan.
 
 ```yaml
 services:
-db:
-image: postgres:16
-environment:
-POSTGRES_PASSWORD: secret
-healthcheck:
-test: ["CMD-SHELL", "pg_isready -U postgres"]
-interval: 5s
-timeout: 3s
-retries: 10
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: secret
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
 ```
 
 ---

@@ -41,11 +41,11 @@ printenv | grep APP_ENV
 
 ```yaml
 services:
-api:
-image: myapp:latest
-environment:
-APP_ENV: production
-PORT: "8000"
+  api:
+    image: myapp:latest
+    environment:
+      APP_ENV: production
+      PORT: "8000"
 ```
 
 ---
@@ -56,12 +56,12 @@ PORT: "8000"
 
 ```yaml
 services:
-api:
-image: myapp:latest
-environment:
-APP_ENV: ${APP_ENV}
-DB_HOST: ${DB_HOST}
-DB_PORT: ${DB_PORT}
+  api:
+    image: myapp:latest
+    environment:
+      APP_ENV: ${APP_ENV}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
 ```
 
 `.env`:
@@ -139,10 +139,10 @@ DB_PASSWORD=change_me
 
 ```yaml
 services:
-api:
-image: myapp:latest
-env_file:
-  - .env
+  api:
+    image: myapp:latest
+    env_file:
+      - .env
 ```
 
 Bu yöntemle çok sayıda env değişkeni daha düzenli taşınır.
@@ -174,10 +174,10 @@ DB_PASSWORD=supersecret
 
 ```yaml
 services:
-api:
-build: .
-env_file:
-  - .env
+  api:
+    build: .
+    env_file:
+      - .env
 ```
 
 ### 3) Çalıştır

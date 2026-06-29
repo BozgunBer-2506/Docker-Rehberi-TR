@@ -160,18 +160,18 @@ sh -c "tar xzf /backup/pgdata-backup.tar.gz -C /target"
 
 ```yaml
 services:
-db:
-image: postgres:16
-environment:
-POSTGRES_PASSWORD: secret123
-POSTGRES_DB: myapp
-volumes:
-- pgdata:/var/lib/postgresql/data
-ports:
-- "5432:5432"
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: secret123
+      POSTGRES_DB: myapp
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
 volumes:
-pgdata:
+  pgdata:
 ```
 
 ---
